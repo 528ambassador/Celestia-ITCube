@@ -480,7 +480,7 @@ while not programm_exit:
                     if (player_y + 60) - (block_y * 40) == 0 and -40 < player_x - (block_x * 40) < 40:
                         agreed_grounded = True
 
-        # Последствия
+        # Collision direction verdict
         if collision_happened:
             if (player_dir_x_pend == player_dir_y_pend == (0, 0, 0)) and (
                     player_dir_x_contr != (0, 0, 0) or player_dir_y_contr != (0, 0, 0)):
@@ -573,7 +573,7 @@ while not programm_exit:
             title_on = True
             game_check = True
 
-        # Прорисовка
+        # Rendering
         screen.blit(background, (0, 0), )
 
         if not death_timer:
@@ -594,7 +594,6 @@ while not programm_exit:
             elif player_dir_x > 0:
                 player_sprite_offset = 0
 
-            # print(dash_x, dash_y)
             if dash_in_motion and dash_x and not dash_y:
                 screen.blit(player_sprites, (player_x - (1000 * camera_offset_x), player_y - (600 * camera_offset_y)),
                             area=(80 + player_sprite_offset, 180, 40, 60))
