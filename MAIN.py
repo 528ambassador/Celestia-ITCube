@@ -177,7 +177,7 @@ while not programm_exit:
             get_block_coords()
             if grounded_frame_off or just_started or game_reset:
                 grounded = True
-            print('updated coords')
+
         if just_started:
             player_x, player_y = [int(n) for n in current_checkpoint]
             just_started = False
@@ -488,25 +488,25 @@ while not programm_exit:
                 player_dir_y_pend = player_dir_y_contr
 
             if player_dir_x_pend[0] > 0 and player_dir_x_pend[3] != 'platform':
-                print('sent left')
+
                 player_x = (player_dir_x_pend[1] * 40) - 40
                 dash_x, dash_ratio = 0, 1
                 friction_right_n = 0
             if player_dir_x_pend[0] < 0 and player_dir_x_pend[3] != 'platform':
-                print('sent right')
+
                 player_x = (player_dir_x_pend[1] * 40) + 40
                 dash_x, dash_ratio = 0, 1
                 friction_left_n = 0
             if player_dir_y_pend[0] > 0 and player_dir_y_pend[3] != 'platform':
-                print(player_dir_y_pend[3])
-                print('sent donw :)')
+
+
                 player_y = (player_dir_y_pend[2] * 40) + 40
                 const_y, const_decreasing_y = 0, 0
                 jump_held = False
                 dash_in_motion = False
                 ceiling_col_crutch = 5
             if player_dir_y_pend[0] < 0 and last_player_y <= (player_dir_y_pend[2] * 40) - 50:
-                print('sent up')
+
                 agreed_grounded = True
                 player_y = (player_dir_y_pend[2] * 40) - 60
                 dash_in_motion = False
@@ -538,7 +538,7 @@ while not programm_exit:
                 gravity_mult = 0
                 const_y = 7
                 dashable = True
-        print(grounded_frame_off)
+
         if agreed_grounded:
             grounded = True
             coyote_off = True
@@ -636,7 +636,7 @@ while not programm_exit:
                         area=(40 * (dead_timer // 3), 240, 40, 60))
             death_timer -= 1
             paused_x, paused_y = True, True
-        print(death_timer)
+
 
         screen.blit(rendering, (0, 0), )
         last_player_x = player_x
@@ -660,7 +660,7 @@ while not programm_exit:
 
             data_checkpoint = open('checkpoint_data.txt', 'r', encoding='utf-8')
             checkpoint = data_checkpoint.readlines()
-            print(checkpoint, default_checkpoint)
+
             if not checkpoint or ' '.join(checkpoint) == default_checkpoint:
                 key_pending = 2
                 no_active_game = 1
